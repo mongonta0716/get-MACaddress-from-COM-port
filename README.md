@@ -9,7 +9,7 @@ USBにつないだ機器のMACアドレスを取得する.
 MACアドレスは以下の2つのフォーマット形式で出力される.
 
 ``` sh
-$ python getMacAddr.py 8
+$ python getMacAddrFromCOM.py 8
 FF:FF:FF:FF:FF:FF
 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
 ```
