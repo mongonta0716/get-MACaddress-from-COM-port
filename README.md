@@ -1,4 +1,4 @@
-# get-MACaddress-from-COM-poat
+# get-MACaddress-from-COM-port
 
 ## JP
 
