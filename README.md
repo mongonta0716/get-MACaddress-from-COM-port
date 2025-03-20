@@ -18,19 +18,17 @@ FF:FF:FF:FF:FF:FF
 
 機器を接続しているCOMポート名は、別途デバイスマネージャーなどで調べておくこと.
 
+- COMポートの表示形式
+  - Windows : COM8
+  - Linux : /dev/ttyUSB0やttyACM0
+
 esptoolを使用するため事前にインストールしておくこと.
 
 ``` sh
 $ pip install esptool
 ```
 
-esptool.pyへのパスを正しく通しておくこと.  
-下記は一例、esptool.pyの場所を正しく指定する.
-
-
-``` sh
-$ PATH=$HOME/.local/bin:$PATH
-```
+`subprocess.run` 時に `sys.executable -m esptool` コマンドで実行しており、Windows, Linux両方で動作する想定です。
 
 ## EN
 
@@ -46,21 +44,17 @@ FF:FF:FF:FF:FF:FF
 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
 ```
 
-## Requirements:
+Make sure to check the COM port name of the connected device using Device Manager or an equivalent tool.
 
-Check the COM port number of the connected device using Device Manager or another tool beforehand.
+- COM port format:
+  - Windows: COM8
+  - Linux: /dev/ttyUSB0 or /dev/ttyACM0
 
-Install esptool before running the script:
+Pre-install esptool before running the script:
 
 ```sh
 sh
 $ pip install esptool
 ```
-Ensure that the path to esptool.py is correctly set.
-The following is an example—adjust the path according to your environment:
 
-``` sh
-$ PATH=$HOME/.local/bin:$PATH
-```
-
-
+The script executes esptool using the sys.executable -m esptool command within subprocess.run, ensuring compatibility with both Windows and Linux.
