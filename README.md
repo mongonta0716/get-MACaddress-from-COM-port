@@ -5,18 +5,18 @@
 ## 概要・使用方法:
 
 USBにつないだ機器のMACアドレスを取得する.  
-第一引数にUSBデバイスが使用するCOMポートの番号を与える.  
+第一引数にUSBデバイスが使用するポート名を与える.（WindowsはCOM?、Linuxは/dev/ttyUSB0やttyACM0）  
 MACアドレスは以下の2つのフォーマット形式で出力される.
 
 ``` sh
-$ python getMacAddrFromCOM.py 8
+$ python getMacAddrFromCOM.py COM8
 FF:FF:FF:FF:FF:FF
 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
 ```
 
 ## 使用要件:
 
-機器を接続しているCOMポートの番号は、別途デバイスマネージャーなどで調べておくこと.
+機器を接続しているCOMポート名は、別途デバイスマネージャーなどで調べておくこと.
 
 esptoolを使用するため事前にインストールしておくこと.
 
@@ -37,11 +37,11 @@ $ PATH=$HOME/.local/bin:$PATH
 ## Overview & Usage:
 
 This script retrieves the MAC address of a device connected via USB.  
-Pass the COM port number used by the USB device as the first argument.  
+Pass the port name used by the USB device as the first argument.  (ex. Windows: COM8, Linux: /dev/ttyUSB0 or ttyACM0)
 The MAC address will be output in the following two formats:
 
 ```sh
-$ python getMacAddr.py 8
+$ python getMacAddr.py COM8
 FF:FF:FF:FF:FF:FF
 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
 ```

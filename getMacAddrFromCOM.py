@@ -13,20 +13,22 @@
 # $ PATH=$HOME/.local/bin:$PATH
 # 
 # 使用方法:
-# 第一引数にCOMポートの番号を与える
-# $ python getMacAddr.py 8
+# 第一引数にポート名を与える(Windows: COM8, Linux: /dev/ttyUSB0orACM0)
+# $ python getMacAddr.py COM8
 # FF:FF:FF:FF:FF:FF
 # 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
 
 import subprocess
 import sys
 import re
+import shutil
 
 def get_mac_address(com_port):
     try:
         # esptool コマンドを実行
+        esptool_path = shutil.which("esptool.py")
         result = subprocess.run([
-            "esptool", "--port", f"COM{com_port}", "read_mac"
+            esptool_path, "--port", com_port, "read_mac"
         ], capture_output=True, text=True, check=True)
         
         # 標準出力からMACアドレスを抽出
@@ -46,7 +48,7 @@ def get_mac_address(com_port):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("使用方法: python getMacAddr.py <COMポート番号>")
+        print("使用方法: python getMacAddr.py <ポート名>")
         sys.exit(1)
     
     com_port = sys.argv[1]
